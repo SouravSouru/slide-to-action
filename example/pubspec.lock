@@ -144,7 +144,7 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  slide_to_act:
+  smart_slider:
     dependency: "direct main"
     description:
       path: ".."

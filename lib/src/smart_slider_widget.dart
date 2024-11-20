@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// A customizable "Slide to Action" widget that includes loading and success states.
-class SlideToAction extends StatefulWidget {
-  const SlideToAction({
+class SmartSlider extends StatefulWidget {
+  const SmartSlider({
     super.key,
     required this.controller,
     required this.onSlideComplete,
@@ -39,10 +39,10 @@ class SlideToAction extends StatefulWidget {
   final Widget? text;
 
   @override
-  State<SlideToAction> createState() => _SlideToActionState();
+  State<SmartSlider> createState() => _SmartSliderState();
 }
 
-class _SlideToActionState extends State<SlideToAction>
+class _SmartSliderState extends State<SmartSlider>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _animation;

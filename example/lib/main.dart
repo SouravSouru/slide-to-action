@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:slide_to_act/slide_to_act.dart';
+import 'package:smart_slider/smart_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: SlideToAction(
+              child: SmartSlider(
                 controller: controller,
                 onSlideComplete: () async {
                   controller.loading();

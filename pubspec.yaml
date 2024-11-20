@@ -1,7 +1,7 @@
-name: slide_to_act
-description: "A new Flutter package project."
+name: smart_slider
+description: " A fully customizable slide to confirm actions and provide feedback on the success. It supports different states like loading, success, and failure to enhance user interaction."
 version: 0.0.1
-homepage:
+homepage: https://github.com/SouravSouru/slide-to-action
 
 environment:
   sdk: ^3.5.1
