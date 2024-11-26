@@ -6,7 +6,7 @@
 </p>
 
 <h2 class="hash-header" id="examples">Example </h2>
-![My GIF](https://drive.google.com/uc?id=1yyYogp0Ph440tgKOOHT6WN_y7ZvOElte)
+<img src="https://drive.google.com/uc?id=1yyYogp0Ph440tgKOOHT6WN_y7ZvOElte" alt="image" width="500"></td>
 
 <h3  id="examples">How to use </h3>
 
