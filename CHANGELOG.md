@@ -1,3 +1,3 @@
-## 0.0.3
+## 0.0.5
 
-* Added a failure condition.
+* Updated the readme file.
