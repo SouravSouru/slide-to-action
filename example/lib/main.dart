@@ -75,10 +75,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   await Future.delayed(Duration(seconds: 2)).then(
                     (value) {
-                      controller.success();
                       _incrementCounter();
                     },
                   );
+
                   await Future.delayed(Duration(seconds: 2)).then(
                     (value) {
                       controller.reset();

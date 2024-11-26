@@ -116,7 +116,8 @@ class _SmartSliderState extends State<SmartSlider>
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 300),
                     width: (widget.controller.isLoading ||
-                            widget.controller.isSuccess)
+                            widget.controller.isSuccess ||
+                            widget.controller.isFail)
                         ? widget.height ?? 77
                         : constraints.maxWidth,
                     height: widget.height ?? 77,
@@ -130,7 +131,7 @@ class _SmartSliderState extends State<SmartSlider>
 
                 // Display text or custom widget when not loading or in success state.
                 if (!widget.controller.isLoading &&
-                    !widget.controller.isSuccess)
+                    (!widget.controller.isSuccess && !widget.controller.isFail))
                   Center(
                     child: widget.text ??
                         Text(
@@ -151,7 +152,7 @@ class _SmartSliderState extends State<SmartSlider>
                   ),
 
                 // Display a success icon during the success state.
-                if (widget.controller.isSuccess)
+                if (widget.controller.isSuccess && !widget.controller.isFail)
                   const Center(
                     child: Icon(
                       Icons.check_circle_outline_rounded,
@@ -160,9 +161,19 @@ class _SmartSliderState extends State<SmartSlider>
                     ),
                   ),
 
+                // Display a success icon during the fail state.
+                if (widget.controller.isFail && !widget.controller.isSuccess)
+                  const Center(
+                    child: Icon(
+                      Icons.close,
+                      color: Colors.white,
+                      size: 50,
+                    ),
+                  ),
+
                 // Slider knob for user interaction, shown only in idle state.
                 if (!widget.controller.isLoading &&
-                    !widget.controller.isSuccess)
+                    (!widget.controller.isSuccess && !widget.controller.isFail))
                   Positioned(
                     left: _sliderPosition,
                     child: GestureDetector(
@@ -227,6 +238,10 @@ class SlideController {
   bool _isSuccess = false;
   bool get isSuccess => _isSuccess;
 
+  /// Whether the slider is in the success state.
+  bool _isFail = false;
+  bool get isFail => _isFail;
+
   SlideController();
 
   /// Reset the slider to its initial state.
@@ -234,6 +249,7 @@ class SlideController {
     _shouldReset = true;
     _isLoading = false;
     _isSuccess = false;
+    _isFail = false;
     _listener();
   }
 
@@ -241,6 +257,7 @@ class SlideController {
   void loading() {
     _isLoading = true;
     _isSuccess = false;
+    _isFail = false;
     _listener();
   }
 
@@ -248,6 +265,15 @@ class SlideController {
   void success() {
     _isSuccess = true;
     _isLoading = false;
+    _isFail = false;
+    _listener();
+  }
+
+  /// Set the slider to the success state.
+  void fail() {
+    _isLoading = false;
+    _isSuccess = false;
+    _isFail = true;
     _listener();
   }
 
